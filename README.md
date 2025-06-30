@@ -1,105 +1,62 @@
-# 🏠 Airbnb Clone – Backend
+# Project Overview
+The Airbnb Clone Project is a full-stack application that mimics the core functionalities of Airbnb — a popular booking platform. This project focuses on backend development, database design, API security, and continuous deployment workflows. It’s designed to give hands-on experience with building scalable, secure, and maintainable software systems, using Django, MySQL, and GraphQL among other modern tools.
 
-This project is the backend system for an Airbnb-like platform, designed as part of the ALX Software Engineering program.
-It focuses on delivering robust, secure, and scalable features to manage users, properties, bookings, payments, and reviews.
+Team Roles
+Backend Developer: Designs and implements the server-side logic, APIs, and database interactions to ensure smooth and secure data flow.
 
----
+Database Administrator: Manages the database design, optimization, and maintenance to ensure data integrity and performance.
 
-## 🏆 Project Goals
+Frontend Developer: (Though not in scope here) Builds the user interface and client-side logic to interact with backend services.
 
-- **User Management:** Secure registration, authentication, and profile handling.
-- **Property Listings:** Create, update, delete, and retrieve property data.
-- **Booking System:** Book properties and manage reservation details.
-- **Payment Processing:** Integrate payment handling for bookings.
-- **Reviews & Ratings:** Allow users to leave feedback on properties.
-- **Performance:** Optimize database with indexing and caching strategies.
+DevOps Engineer: Sets up CI/CD pipelines and deployment processes to automate testing and deployment.
 
----
+Project Manager: Oversees the project progress, manages timelines, and facilitates communication between team members.
 
-## 🛠️ Features Overview
+Technology Stack
+Django: Web framework used for building the backend APIs and managing application logic.
 
-### 🔗 API Structure
-- **REST API:** Built using Django REST Framework, documented with OpenAPI.
-- **GraphQL API:** Flexible querying option for efficient data access.
+MySQL: Relational database system used to store and organize user data, properties, bookings, and reviews.
 
-### 👤 User Authentication
-- Endpoints: `/users/`, `/users/{id}/`
-- Features: Sign up, login, profile CRUD
+GraphQL: API query language that allows clients to request exactly the data they need.
 
-### 🏡 Property Management
-- Endpoints: `/properties/`, `/properties/{id}/`
-- Features: CRUD operations for listings
+Docker: Containerization tool to package the application and its dependencies for consistent deployment.
 
-### 📆 Booking System
-- Endpoints: `/bookings/`, `/bookings/{id}/`
-- Features: Book, update, cancel, and view bookings
+GitHub Actions: CI/CD platform to automate testing, building, and deployment processes.
 
-### 💳 Payment Processing
-- Endpoint: `/payments/`
-- Feature: Handle transactions securely
+Postman: Tool used for API testing and validation.
 
-### ⭐ Review System
-- Endpoints: `/reviews/`, `/reviews/{id}/`
-- Feature: Post and manage user reviews
+Database Design
+Entities & Fields:
+User: id, username, email, password_hash, profile_picture
 
----
+Property: id, owner_id (User), title, description, location, price_per_night
 
-## ⚙️ Tech Stack
+Booking: id, user_id (User), property_id (Property), start_date, end_date, status
 
-- **Frameworks:** Django, Django REST Framework
-- **Database:** PostgreSQL
-- **APIs:** REST, GraphQL
-- **Async Tasks:** Celery + Redis
-- **Caching & Session:** Redis
-- **Containerization:** Docker
-- **CI/CD:** GitHub Actions
+Review: id, user_id (User), property_id (Property), rating, comment, created_at
 
----
+Payment: id, booking_id (Booking), amount, payment_date, payment_status
 
-## 📌 REST API Endpoints (Quick View)
+Relationships:
+A User can own multiple Properties.
 
-### Users
-- `GET/POST` `/users/` – List / Create user  
-- `GET/PUT/DELETE` `/users/{id}/` – Retrieve / Update / Delete user
+A Booking belongs to one Property and is made by one User.
 
-### Properties
-- `GET/POST` `/properties/` – List / Create property  
-- `GET/PUT/DELETE` `/properties/{id}/` – Retrieve / Update / Delete property
+A User can leave multiple Reviews on different Properties.
 
-### Bookings
-- `GET/POST` `/bookings/` – List / Create booking  
-- `GET/PUT/DELETE` `/bookings/{id}/` – Retrieve / Update / Delete booking
+Each Booking has one associated Payment record.
 
-### Payments
-- `POST` `/payments/` – Process payment
+Feature Breakdown
+User Management: Allows users to register, log in, and manage their profiles securely.
 
-### Reviews
-- `GET/POST` `/reviews/` – List / Create review  
-- `GET/PUT/DELETE` `/reviews/{id}/` – Retrieve / Update / Delete review
+Property Management: Enables property owners to list, update, and remove properties.
 
----
+Booking System: Lets users book properties for specified dates and manage their bookings.
 
-## 📚 Documentation
+Review System: Users can leave feedback and rate properties they stayed in, enhancing community trust.
 
-- **REST API:** OpenAPI (Swagger) docs available  
-- **GraphQL:** Endpoint available for flexible querying
+Payment Processing: Handles secure payment transactions linked to bookings.
 
----
+API Security: Implements authentication, authorization, and input validation to protect user data.
 
-## Team Roles
-
-- **Backend Dev:** API development, business logic, and architecture
-- **DB Admin:** Schema design, optimization, indexing
-- **DevOps:** Docker, CI/CD, deployment setup
-- **QA:** Testing endpoints and feature flows
-
----
-
-## 📎 Additional Resources
-
-- System design inspiration from hotel booking platforms  
-- Clean backend architecture and scalable API practices
-
----
-
-> 💡 Still in progress – major features being built weekly. Contributions and feedback are welcome!
+CI/CD Pipeline: Automates testing and deployment to maintain code quality and speed up releases.

@@ -116,5 +116,5 @@ Using CI/CD pipelines fosters collaboration, maintains code integrity, and enabl
 
 ---
 
-*Developed by [Your Name] — Backend Developer, Pro Dev Backend Cohort 2*
+*Developed by Rafia Kedir loper, Pro Dev Backend Cohort 2*
 

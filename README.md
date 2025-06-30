@@ -86,7 +86,7 @@ It focuses on delivering robust, secure, and scalable features to manage users, 
 
 ---
 
-## 👥 Team Roles
+## Team Roles
 
 - **Backend Dev:** API development, business logic, and architecture
 - **DB Admin:** Schema design, optimization, indexing
